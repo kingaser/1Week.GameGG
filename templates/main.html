@@ -9,6 +9,8 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../static/main.css">
 
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -19,10 +21,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <script>
-    function reviewing() {
-        let name = $('#name').val()
-        location.href = "/game/content?gamename_give=" + name
-    }
+        function reviewing() {
+            let name = $('#name').val()
+            location.href = "/game/content?gamename_give=" + name
+        }
 
     </script>
 
@@ -41,13 +43,13 @@
 
 <nav class="navbar">
     <div>
-        <a href="/" id="title_a"><i class="fa-solid fa-gamepad"></i>GAME.GG</a>
+        <a href="/" id="title_a"> <i class="fa-solid fa-gamepad"></i>&nbsp;GAME.GG</a>
     </div>
 </nav>
 
 
 <div class="mytitle">
-    <h1>GAME.GG</h1>
+    <p>GAME.GG</p>
 </div>
 
 <div class="mycards">
@@ -56,17 +58,17 @@
             <caption>포털 트렌드 , PC방 접속 , 게임방송 시청자 , 메카 유저 투표 기준</caption>
             <thead>
             <tr>
-                <th scope="col">순위</th>
+                <th scope="col"><h5>순위</h5></th>
                 <th scope="col"></th>
-                <th scope="col">게임명</th>
+                <th scope="col"><h5>게임명</h5></th>
             </tr>
             </thead>
-            <tbody id="table-contents">
+            <tbody id="table-contents" class="table-contents">
 
             </tbody>
         </table>
     </div>
-
+</div>
 </body>
 
 </html>
