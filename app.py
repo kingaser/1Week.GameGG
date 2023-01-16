@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
-
-
-
 from pymongo import MongoClient
 
 client = MongoClient('mongodb+srv://coy:sparta@cluster0.apdwkr3.mongodb.net/Cluster0?retryWrites=true&w=majority')
@@ -60,7 +57,8 @@ def review_post():
 
 @app.route("/game/comment", methods=["GET"])
 def review_get():
-    review_list = list(db.comment.find({}, {'_id': False}))
+    name = request.args.get("name_give")
+    review_list = list(db.comment.find({'name':name}, {'_id': False}))
     return jsonify({'reviews':review_list})
 
 #여기까지 입니다

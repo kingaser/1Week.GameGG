@@ -6,13 +6,15 @@
     padding: 8px 12px;
     --text-color: black;
     margin: 3px 0;
-    font-size: 18px;
+
 }
 
 a {
     text-decoration: none;
     color: black;
     border: 3px;
+    font-weight: 900;
+    font-size: 30px;
 }
 
 a:hover {
