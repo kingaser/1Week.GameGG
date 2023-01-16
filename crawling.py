@@ -26,6 +26,7 @@ for game in games:
         'rank':rank,
         'name':name,
         'img':img,
+        'company':company,
         'charge':charge,
         'genre':genre
     }
