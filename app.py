@@ -62,6 +62,7 @@ def review_post():
 def review_get():
     review_list = list(db.comment.find({}, {'_id': False}))
     return jsonify({'reviews':review_list})
+
 #여기까지 입니다
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5001, debug=True)

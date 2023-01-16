@@ -36,13 +36,14 @@ $(document).ready(function () {
         function show_comment() {
             $.ajax({
                 type: "GET",
-                url: "/game/review",
+                url: "/game/comment",
                 data: {},
                 success: function (response) {
-                    let rows = response['comments']
+                    let rows = response['reviews']
+                    console.log(rows)
                     for (let i = 0; i < rows.length; i++) {
-                        let content = rows[i]['content']
-
+                        let content = rows[i]['comment']
+                        console.log(content)
                         let temp_html = `<li>
                                             <h2>${content}</h2>
                                         </li>`
@@ -55,17 +56,18 @@ $(document).ready(function () {
             });
         }
 
-        // function save_comment(){
-        //     let bucket = $('#comment').val()
-        //
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "/game/comment",
-        //         data: {comment_give: comment},
-        //         success: function (response) {
-        //             alert(response["msg"])
-        //             window.location.reload()
-        //         }
-        //     });
-        //
-        // }
+        function save_comment(){
+            let comment = $('#comment').val()
+            let name = $("#name_give").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/game/comment",
+                data: {comment_give: comment, name_give: name},
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                }
+            });
+
+        }
