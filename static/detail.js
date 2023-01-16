@@ -34,7 +34,7 @@ $(document).ready(function () {
         }
 
         function show_comment() {
-        let name_form = $("#name_give").val();
+        let name_form = $('#name_give').val()
             $.ajax({
                 type: "GET",
                 url: "/game/comment",
@@ -43,10 +43,9 @@ $(document).ready(function () {
                     let rows = response['reviews']
                     console.log(rows)
                     for (let i = 0; i < rows.length; i++) {
-
                         let content = rows[i]['comment']
                         console.log(content)
-                        let temp_html =`<li>
+                        let temp_html = `<li>
                                             <h2>${content}</h2>
                                         </li>`
 
