@@ -33,8 +33,8 @@ def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.athumb_user.find_one({"id": payload['id']})
-        return render_template('main.html', nickname =user_info["nickname"])
+        user_info = db.user.find_one({"id": payload['id']})
+        return render_template('main.html', nick =user_info["nick"])
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인이 필요합니다."))
     except jwt.exceptions.DecodeError:
