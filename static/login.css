@@ -25,15 +25,6 @@
     color: brown;
 }
 
-#list_a {
-    text-decoration: none;
-    color: black;
-    border: 3px;
-}
-
-#list_a:hover {
-    color: brown;
-}
 
 .mytitle {
     width: 100%;
@@ -55,23 +46,50 @@
     font-size: 50px;
     -webkit-text-stroke-width: 3px;
 }
-.mycards {
-    margin: 20px auto 0px auto;
-    width: 95%;
-    max-width: 1200px;
-    /*align-content: center;*/
 
+a{
+    display: block;
 }
 
-
-.table th,td {
-   /*text-align: center;*/
-    vertical-align:middle;
+.abtn{
+    color: black;
+    text-decoration: none;
+    /*display: block;*/
 }
 
-#intro {
+a:hover {
+    color: brown;
+    text-decoration: none;
+}
 
+.form-input {
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.form-input i {
+    position: absolute;
+    font-size: 18px;
+    top: 15px;
+    left: 10px;
+}
+
+.form-control {
+    height: 50px;
+    border: 1px solid rgb(94, 91, 91);
+    text-indent: 24px;
+    font-size: 15px;
+}
+
+.form-control:focus {
+    background-color: rgb(221, 219, 219);
+    box-shadow: none;
+    color: black;
+    border-color: #0d6efd;
+}
+
+#already{
     display: flex;
-    align-items: center;
-
+    justify-content: center;
 }
