@@ -11,7 +11,7 @@ $(document).ready(function () {
                     let rows = response['games']
                     for(let i = 0; i < rows.length; i++){
                         let name = rows[i]['name']
-                        let image = rows[i]['image']
+                        let image = rows[i]['img']
                         let rank = rows[i]['rank']
 
                         let temp_html = `<tr>
