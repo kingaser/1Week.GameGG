@@ -8,8 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../static/detail.css">
-    <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/800px-Apple_logo_black.svg.png">
 
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -24,26 +25,41 @@
 
 <body>
 
-    <nav class="navbar">
-        <div>
-            <a href="/" id="title_a"><i class="fa-solid fa-gamepad"></i>GAME.GG</a>
+<nav class="navbar">
+    <div>
+        <a href="/" id="title_a"><i class="fa-solid fa-gamepad"></i>&nbsp;GAME.GG</a>
+    </div>
+</nav>
+
+<div class="mytitle" id="game-title">
+    <input type="hidden" value="{{name_give}}" id="name_give">
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card mybox" id="detail_info">
+
+            </div>
+
         </div>
-    </nav>
+        <div class="col">
+            <div class="mybox">
+                <div class="mycomment">
+                    <input id="comment" class="form-control" type="text" placeholder="코멘트를 입력하세요">
+                    <button onclick="save_comment()" type="button" class="btn btn-outline-primary">등록</button>
+                </div>
+            </div>
 
-    <div class="mytitle" id="game-title">
-        <input type="hidden" value="{{name_give}}" id="name_give">
-    </div>
+            <div class="mybox" id="comment-list">
 
-    <div class="mybox">
-        <div class="mycomment">
-            <input id="comment" class="form-control" type="text" placeholder="코멘트를 입력하세요">
-            <button onclick="save_comment()" type="button" class="btn btn-outline-primary">등록</button>
+            </div>
+
         </div>
     </div>
 
-    <div class="mybox" id="comment-list">
+</div>
 
-    </div>
 
 </body>
 

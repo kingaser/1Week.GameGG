@@ -14,13 +14,13 @@ $(document).ready(function () {
                         let image = rows[i]['img']
                         let rank = rows[i]['rank']
                         let temp_html = `<tr>
-                                        <th scope="row">${rank}</th>
+                                        <th scope="row"><h3>${rank}</h3></th>
                                         <td>
                                             <div class="card" style="width: 10rem;">
                                             <img class="card-img-top" src="${image}" alt="Card image cap">
                                          </div>
                                        </td>
-                                        <td><a href="#" id="list_a" onclick='my_detail("${name}")'>${name}</a></td>
+                                        <td><a href="#" id="list_a" onclick='my_detail("${name}")'><h4>${name}</h4></a></td>
                                     </tr>`
                         $('#table-contents').append(temp_html)
                     }

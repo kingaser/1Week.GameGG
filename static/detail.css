@@ -1,3 +1,7 @@
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -14,7 +18,7 @@
     color: black;
     border: 3px;
     font-size: 30px;
-    font-weight: bold;
+
 }
 
 #title_a:hover {
@@ -22,10 +26,10 @@
 }
 
 .mytitle {
-    width: 100%;
-    height: 250px;
+   width: 100%;
+    height: 400px;
 
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://www.casenews.co.kr/news/photo/202202/10630_22036_4230.jpg');
     background-position: center;
     background-size: cover;
 
@@ -37,6 +41,17 @@
     justify-content: center;
 }
 
+.mytitle > p{
+    font-size: 50px;
+    -webkit-text-stroke-width: 3px;
+}
+
+#game-title {
+    background-position: center;
+    background-size: cover;
+    /*background-image: url("https://cdn.gamemeca.com/gmdb/g000/26/18/221151(3).jpg");*/
+
+}
 
 .mybox {
     width: 95%;
@@ -80,3 +95,6 @@
     text-decoration: line-through;
 }
 
+/*#card_title{*/
+/*    font-size: 30px;*/
+/*}*/

@@ -18,15 +18,26 @@ function show_content() {
             let company = response['company_give']
             let genre = response['genre_give']
             let charge = response['charge_give']
+            let url = response['img_give']
+            let desc = response['desc_give']
+
+            url = encodeURI(url).replace("(", "%28").replace(")", "%29");
 
 
             let temp_html = `
-                        <h2>${name}</h2> <br>
-                        <h5>${company} &nbsp|&nbsp ${genre} &nbsp ${charge}</h5>
-                        
+                        <p>${name}</p>
+                        <h7>${company} &nbsp|&nbsp ${genre} &nbsp ${charge}</h7>
                     `
-
+            let temp_html2 = `
+                           <img class="card-img-top" id="detail_img" src="${url}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h2 class="card-title" id="card_title">Information</h2>
+                                    <p class="card-text">${desc}</p>
+<!--                            
+                                </div>
+                             `
             $('#game-title').append(temp_html)
+            $('#detail_info').append(temp_html2)
 
 
         }
