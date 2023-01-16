@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
-import requests
-from bs4 import BeautifulSoup
+
+
+
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://sanghoonLee:661213bb@cluster0.26fm7vm.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://coy:sparta@cluster0.apdwkr3.mongodb.net/Cluster0?retryWrites=true&w=majority')
+
 db = client.dbsparta
 
 import requests
@@ -34,6 +36,12 @@ def detail():
     genre = game['genre']
 
     return jsonify({'name_give': name, 'img_give' : img, 'rank_give' : rank, 'company_give' : company, 'charge_give' : charge, 'genre_give' : genre})
+
+@app.route('/game', methods=["GET"])
+def game_list():
+    game_list = list(db.gamegg.find({}, {'_id': False}))
+    return jsonify({'games': game_list})
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
