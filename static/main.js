@@ -11,12 +11,12 @@ $(document).ready(function () {
                     let rows = response['games']
                     for(let i = 0; i < rows.length; i++){
                         let name = rows[i]['name']
-                        let image = rows[i]['image']
+                        let img = rows[i]['img']
                         let rank = rows[i]['rank']
 
                         let temp_html = `<tr>
                                         <th scope="row">${rank}</th>
-                                        <td><img src="${image}"></td>
+                                        <td><img src="${img}"></td>
                                         <td><a href="detail" onclick='detail("${name}")'>${name}</a></td>
                                     </tr>`
                         $('#table-contents').append(temp_html)
