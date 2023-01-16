@@ -1,11 +1,33 @@
 $(document).ready(function () {
             show_comment();
+            show_content();
         });
+    function show_content() {
+
+        let name = $("#name_give").val();
+        alert(name)
+            $.ajax({
+                type: "GET",
+                url: "/game/content",
+                data: {'name_give': name},
+                success: function (response) {
+                    let rows = response['content']
+                    for (let i = 0; i < rows.length; i++) {
+                        let name = rows[i]['name']
+
+                        let temp_html = `<h1>${name}</h1>`
+
+                        $('#game-title').append(temp_html)
+
+                    }
+                }
+            });
+        }
 
         function show_comment() {
             $.ajax({
                 type: "GET",
-                url: "/game/<name>",
+                url: "/game/review",
                 data: {},
                 success: function (response) {
                     let rows = response['comments']
@@ -24,17 +46,17 @@ $(document).ready(function () {
             });
         }
 
-        function save_comment(){
-            let bucket = $('#bucket').val()
-
-            $.ajax({
-                type: "POST",
-                url: "/bucket",
-                data: {bucket_give: bucket},
-                success: function (response) {
-                    alert(response["msg"])
-                    window.location.reload()
-                }
-            });
-
-        }
+        // function save_comment(){
+        //     let bucket = $('#comment').val()
+        //
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/game/comment",
+        //         data: {comment_give: comment},
+        //         success: function (response) {
+        //             alert(response["msg"])
+        //             window.location.reload()
+        //         }
+        //     });
+        //
+        // }

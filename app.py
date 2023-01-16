@@ -13,9 +13,15 @@ db = client.dbsparta
 import requests
 from bs4 import BeautifulSoup
 
-@app.route('/game', methods=["GET"])
+@app.route('/')
 def home():
     return render_template('main.html')
+
+@app.route('/game', methods=["GET"])
+def game_list():
+    game_list = list(db.gamegg.find({}, {'_id': False}))
+    return jsonify({'games': game_list})
+
 
 @app.route('/game/review', methods=["GET"])
 def review():
@@ -25,8 +31,8 @@ def review():
 @app.route('/game/content', methods=["GET"])
 def detail():
     name_receive = request.args.get("name_give")
-
-    game = db.game.find_one({'name': name_receive})
+    print(name_receive)
+    game = db.gamegg.find_one({'name': name_receive})
 
     name = game['name']
     img = game['img']
@@ -35,13 +41,13 @@ def detail():
     charge = game['charge']
     genre = game['genre']
 
+    print(name)
+    print(img)
+
+
     return jsonify({'name_give': name, 'img_give' : img, 'rank_give' : rank, 'company_give' : company, 'charge_give' : charge, 'genre_give' : genre})
 
-@app.route('/game', methods=["GET"])
-def game_list():
-    game_list = list(db.gamegg.find({}, {'_id': False}))
-    return jsonify({'games': game_list})
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5001, debug=True)
