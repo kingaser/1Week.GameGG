@@ -13,11 +13,14 @@ $(document).ready(function () {
                         let name = rows[i]['name']
                         let image = rows[i]['img']
                         let rank = rows[i]['rank']
-
                         let temp_html = `<tr>
                                         <th scope="row">${rank}</th>
-                                        <td><img src="${image}"></td>
-                                        <td><a href="detail" onclick='detail("${name}")'>${name}</a></td>
+                                        <td>
+                                            <div class="card" style="width: 10rem;">
+                                            <img class="card-img-top" src="${image}" alt="Card image cap">
+                                         </div>
+                                       </td>
+                                        <td><a onclick='my_detail("${name}")'>${name}</a></td>
                                     </tr>`
                         $('#table-contents').append(temp_html)
                     }
@@ -25,14 +28,6 @@ $(document).ready(function () {
             })
         }
 
-         function detail(name) {
-            $.ajax({
-                type: 'POST',
-                url: '/game/review',
-                data: {name_give: name},
-                success: function (response) {
-                   // alert(response['msg'])
-                    window.location.reload()
-                }
-            })
-        }
+         function my_detail(name){
+            location.href = "/game/review?name_give=" + name.split(' ').join('');
+         }
