@@ -154,9 +154,10 @@ def detail():
     company = game['company']
     charge = game['charge']
     genre = game['genre']
+    desc = game['desc']
 
 
-    return jsonify({'name_give': name, 'img_give' : img, 'rank_give' : rank, 'company_give' : company, 'charge_give' : charge, 'genre_give' : genre})
+    return jsonify({'name_give': name, 'img_give' : img, 'rank_give' : rank, 'company_give' : company, 'charge_give' : charge, 'genre_give' : genre, 'desc_give' : desc})
 
 # 여기서 부터 입니다
 @app.route("/game/comment", methods=["POST"])
