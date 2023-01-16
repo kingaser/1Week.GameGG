@@ -57,8 +57,8 @@
     width: 95%;
     max-width: 700px;
     padding: 20px;
-    border: black 1px solid;
-    /*box-shadow: 0px 0px 10px 0px lightblue;*/
+    /*border: black 1px solid;*/
+    box-shadow: 0px 0px 10px 0px lightblue;
     margin: 20px auto;
 }
 
