@@ -3,18 +3,38 @@ app = Flask(__name__)
 
 from bs4 import BeautifulSoup
 
+
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.9wvifvb.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://coy:sparta@cluster0.apdwkr3.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
-@app.route('/')
+import requests
+from bs4 import BeautifulSoup
+
+@app.route('/game', methods=["GET"])
 def home():
     return render_template('main.html')
 
-@app.route('/detail')
+@app.route('/game/review', methods=["GET"])
+def review():
+    name_receive = request.args.get("name_give")
+    return render_template('detail.html', name_give = name_receive)
+
+@app.route('/game/content', methods=["GET"])
 def detail():
-    return render_template('detail.html')
+    name_receive = request.args.get("name_give")
+
+    game = db.game.find_one({'name': name_receive})
+
+    name = game['name']
+    img = game['img']
+    rank = game['rank']
+    company = game['company']
+    charge = game['charge']
+    genre = game['genre']
+
+    return jsonify({'name_give': name, 'img_give' : img, 'rank_give' : rank, 'company_give' : company, 'charge_give' : charge, 'genre_give' : genre})
 
 @app.route("/game/comment", methods=["POST"])
 def review_post():
@@ -41,4 +61,4 @@ def game_list():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5001, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
