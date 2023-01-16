@@ -18,14 +18,21 @@ function show_content() {
             let company = response['company_give']
             let genre = response['genre_give']
             let charge = response['charge_give']
+            let url = response['img_give']
+            let desc = response['desc_give']
 
+            console.log(url)
+            url = encodeURI(url).replace("(", "%28").replace(")", "%29");
+            console.log(url)
+            $('#game-title').css("background-image","linear-gradient(0deg, rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.7)),url(" + url +")")
+            $('#game-title').css("object-fit", "none")
 
             let temp_html = `
-                        <h2>${name}</h2> <br>
-                        <h5>${company} &nbsp|&nbsp ${genre} &nbsp ${charge}</h5>
-                        
+                        <h2>${name}</h2>
+                        <h5>${desc}</h5>
+                        <h7>${company} &nbsp|&nbsp ${genre} &nbsp ${charge}</h7>
                     `
-
+            console.log(1234)
             $('#game-title').append(temp_html)
 
 
