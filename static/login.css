@@ -25,15 +25,6 @@
     color: brown;
 }
 
-#list_a {
-    text-decoration: none;
-    color: black;
-    border: 3px;
-}
-
-#list_a:hover {
-    color: brown;
-}
 
 .mytitle {
     width: 100%;
