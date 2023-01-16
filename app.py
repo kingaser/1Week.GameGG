@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, jsonify
+
 app = Flask(__name__)
-
-
-
 
 from pymongo import MongoClient
 
@@ -13,9 +11,11 @@ db = client.dbsparta
 import requests
 from bs4 import BeautifulSoup
 
+
 @app.route('/')
 def home():
     return render_template('main.html')
+
 
 @app.route('/game', methods=["GET"])
 def game_list():
@@ -26,7 +26,8 @@ def game_list():
 @app.route('/game/review', methods=["GET"])
 def review():
     name_receive = request.args.get("name_give")
-    return render_template('detail.html', name_give = name_receive)
+    return render_template('detail.html', name_give=name_receive)
+
 
 @app.route('/game/content', methods=["GET"])
 def detail():
@@ -42,29 +43,32 @@ def detail():
     genre = game['genre']
     desc = game['desc']
 
+    return jsonify(
+        {'name_give': name, 'img_give': img, 'rank_give': rank, 'company_give': company, 'charge_give': charge,
+         'genre_give': genre, 'desc_give': desc})
 
-    return jsonify({'name_give': name, 'img_give' : img, 'rank_give' : rank, 'company_give' : company, 'charge_give' : charge, 'genre_give' : genre, 'desc_give' :desc})
 
 # 여기서 부터 입니다
 @app.route("/game/comment", methods=["POST"])
 def review_post():
-
     name_receive = request.form['name_give']
     comment_receive = request.form['comment_give']
 
     doc = {
-        'name':name_receive,
-        'comment':comment_receive
+        'name': name_receive,
+        'comment': comment_receive
     }
     db.comment.insert_one(doc)
     return jsonify({'msg': '등록 완료!'})
 
+
 @app.route("/game/comment", methods=["GET"])
 def review_get():
     name_receive = request.args.get('name_give')
-    review_list = list(db.comment.find({'name':name_receive}, {'_id': False}))
-    return jsonify({'reviews':review_list})
+    review_list = list(db.comment.find({'name': name_receive}, {'_id': False}))
+    return jsonify({'reviews': review_list})
 
-#여기까지 입니다
+
+# 여기까지 입니다
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)
