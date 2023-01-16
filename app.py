@@ -34,7 +34,7 @@ def home():
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
         user_info = db.user.find_one({"id": payload['id']})
-        return render_template('main.html', nick =user_info["nick"])
+        return render_template('main.html', nickname=user_info["nick"])
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인이 필요합니다."))
     except jwt.exceptions.DecodeError:
@@ -183,5 +183,5 @@ def review_get():
 
 #여기까지 입니다
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5001, debug=True)
 
