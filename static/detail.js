@@ -5,21 +5,30 @@ $(document).ready(function () {
     function show_content() {
 
         let name = $("#name_give").val();
-        alert(name)
+
             $.ajax({
                 type: "GET",
                 url: "/game/content",
                 data: {'name_give': name},
                 success: function (response) {
-                    let rows = response['content']
-                    for (let i = 0; i < rows.length; i++) {
-                        let name = rows[i]['name']
+                    console.log(response['name_give'])
 
-                        let temp_html = `<h1>${name}</h1>`
+                    let name = response['name_give']
+                    let company = response['company_give']
+                    let genre = response['genre_give']
+                    let charge = response['charge_give']
 
-                        $('#game-title').append(temp_html)
 
-                    }
+                    let temp_html = `
+                        <h2>${name}</h2> <br>
+                        <h5>${company}</h5>
+                        <h5>${genre}</h5>
+                        <h5>${charge}</h5>
+                    `
+
+                    $('#game-title').append(temp_html)
+
+
                 }
             });
         }

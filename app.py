@@ -31,7 +31,7 @@ def review():
 @app.route('/game/content', methods=["GET"])
 def detail():
     name_receive = request.args.get("name_give")
-    print(name_receive)
+
     game = db.gamegg.find_one({'name': name_receive})
 
     name = game['name']
@@ -40,9 +40,6 @@ def detail():
     company = game['company']
     charge = game['charge']
     genre = game['genre']
-
-    print(name)
-    print(img)
 
 
     return jsonify({'name_give': name, 'img_give' : img, 'rank_give' : rank, 'company_give' : company, 'charge_give' : charge, 'genre_give' : genre})
