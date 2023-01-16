@@ -8,7 +8,7 @@ $(document).ready(function () {
         alert(name)
             $.ajax({
                 type: "GET",
-                url: "/game/comment",
+                url: "/game/content",
                 data: {'name_give': name},
                 success: function (response) {
                     let rows = response['content']
