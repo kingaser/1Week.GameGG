@@ -29,5 +29,5 @@ $(document).ready(function () {
         }
 
          function my_detail(name){
-            location.href = "/game/review?name_give=" + name.split(' ').join('');
+            location.href = "/game/review?name_give=" + name;
          }

@@ -5,7 +5,7 @@ $(document).ready(function () {
     function show_content() {
 
         let name = $("#name_give").val();
-
+        alert(name)
             $.ajax({
                 type: "GET",
                 url: "/game/content",
@@ -27,7 +27,7 @@ $(document).ready(function () {
         function show_comment() {
             $.ajax({
                 type: "GET",
-                url: "/game/comment",
+                url: "/game/review",
                 data: {},
                 success: function (response) {
                     let rows = response['comments']
@@ -46,17 +46,17 @@ $(document).ready(function () {
             });
         }
 
-        function save_comment(){
-            let bucket = $('#comment').val()
-
-            $.ajax({
-                type: "POST",
-                url: "/game/comment",
-                data: {comment_give: comment},
-                success: function (response) {
-                    alert(response["msg"])
-                    window.location.reload()
-                }
-            });
-
-        }
+        // function save_comment(){
+        //     let bucket = $('#comment').val()
+        //
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/game/comment",
+        //         data: {comment_give: comment},
+        //         success: function (response) {
+        //             alert(response["msg"])
+        //             window.location.reload()
+        //         }
+        //     });
+        //
+        // }
