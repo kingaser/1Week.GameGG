@@ -31,7 +31,7 @@ def review():
 @app.route('/game/content', methods=["GET"])
 def detail():
     name_receive = request.args.get("name_give")
-    print(name_receive)
+
     game = db.gamegg.find_one({'name': name_receive})
 
     name = game['name']
@@ -40,9 +40,6 @@ def detail():
     company = game['company']
     charge = game['charge']
     genre = game['genre']
-
-    print(name)
-    print(img)
 
 
     return jsonify({'name_give': name, 'img_give' : img, 'rank_give' : rank, 'company_give' : company, 'charge_give' : charge, 'genre_give' : genre})
@@ -63,8 +60,10 @@ def review_post():
 
 @app.route("/game/comment", methods=["GET"])
 def review_get():
-    review_list = list(db.comment.find({}, {'_id': False}))
+    name_receive = request.args.get('name_give')
+    review_list = list(db.comment.find({'name':name_receive}, {'_id': False}))
     return jsonify({'reviews':review_list})
+
 #여기까지 입니다
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5001, debug=True)
