@@ -17,44 +17,22 @@
     <title>game.gg</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script>
+    function reviewing() {
+        let name = $('#name').val()
+        location.href = "/game/content?gamename_give=" + name
+    }
+
+    </script>
 
 </head>
 
 <body>
-<div class="mytitle">
-    <h1>GAME.GG</h1>
-<!--    <button onclick="open_box()">영화 기록하기</button>-->
-</div>
-<div class="mypost" id="post-box">
-    <div class="form-floating mb-3">
-        <input id="url" type="email" class="form-control" placeholder="name@example.com">
-        <label>영화URL</label>
+    <div>
+        <input type="text" id="name">
+        <button onclick="reviewing()" type="button" class="btn btn-outline-primary">상세보기</button>
     </div>
-    <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">별점</label>
-        <select class="form-select" id="star">
-            <option selected>-- 선택하기 --</option>
-            <option value="1">⭐</option>
-            <option value="2">⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="5">⭐⭐⭐⭐⭐</option>
-        </select>
-    </div>
-    <div class="form-floating">
-        <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
-        <label for="floatingTextarea2">코멘트</label>
-    </div>
-    <div class="mybtns">
-        <button onclick="posting()" type="button" class="btn btn-dark">기록하기</button>
-        <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
-    </div>
-</div>
-<div class="mycards">
-    <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
 
-    </div>
-</div>
 </body>
 
 </html>
