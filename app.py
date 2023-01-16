@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
-import requests
-from bs4 import BeautifulSoup
+
 
 from pymongo import MongoClient
 
-client = MongoClient('db관리 할 분 url ')
+client = MongoClient('mongodb+srv://coy:sparta@cluster0.apdwkr3.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
 @app.route('/')
