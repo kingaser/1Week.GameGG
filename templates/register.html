@@ -33,6 +33,8 @@
         function register() {
             id = $('#userid').val();
             pw = $('#userpw').val();
+            nick = $('#usernick').val();
+
 
             if (id.length == 0) {
                 alert("ID는 필수 입력 사항입니다.");
@@ -41,6 +43,11 @@
             }
             if (pw.length == 0) {
                 alert("비밀번호는 필수 입력 사항입니다.");
+                pw.focus();
+                return false;
+            }
+            if (nick.length == 0) {
+                alert("닉네임은 필수 입력 사항입니다.");
                 pw.focus();
                 return false;
             }
@@ -69,7 +76,7 @@
 
 <nav class="navbar">
     <div>
-        <a href="/" id="title_a"><i class="fa-solid fa-gamepad"></i>&nbsp;GAME.GG</a>
+        <a href="#" id="title_a"><i class="fa-solid fa-gamepad"></i>&nbsp;GAME.GG</a>
     </div>
 </nav>
 

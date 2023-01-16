@@ -37,6 +37,20 @@
         // 쿠키가 있기 때문에, 한번 로그인하면 네이버에서 다시 로그인할 필요가 없는 것입니다.
         // 브라우저를 닫으면 자동 삭제되게 하거나, 일정 시간이 지나면 삭제되게 할 수 있습니다.
         function login() {
+            id = $('#userid').val();
+            pw = $('#userpw').val();
+
+            if (id.length == 0) {
+                alert("ID는 필수 입력 사항입니다.");
+                id.focus();
+                return false;
+            }
+            if (pw.length == 0) {
+                alert("비밀번호는 필수 입력 사항입니다.");
+                pw.focus();
+                return false;
+            }
+
             $.ajax({
                 type: "POST",
                 url: "/api/login",
@@ -63,7 +77,7 @@
 <body>
 <nav class="navbar">
     <div>
-        <a href="/" id="title_a"><i class="fa-solid fa-gamepad"></i>&nbsp;GAME.GG</a>
+        <a href="#" id="title_a"><i class="fa-solid fa-gamepad"></i>&nbsp;GAME.GG</a>
     </div>
 </nav>
 
