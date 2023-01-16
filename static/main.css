@@ -9,13 +9,16 @@
 
 }
 
-
 #title_a {
     text-decoration: none;
     color: black;
     border: 3px;
-    font-weight: 900;
     font-size: 30px;
+    font-weight: bold;
+}
+
+#title_a:hover {
+    color: brown;
 }
 
 #list_a {
@@ -25,10 +28,6 @@
 }
 
 #list_a:hover {
-    color: brown;
-}
-
-#title_a:hover {
     color: brown;
 }
 

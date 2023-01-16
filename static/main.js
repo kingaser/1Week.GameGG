@@ -20,7 +20,7 @@ $(document).ready(function () {
                                             <img class="card-img-top" src="${image}" alt="Card image cap">
                                          </div>
                                        </td>
-                                        <td><a href="#" onclick='my_detail("${name}")' id="list_a">${name}</a></td>
+                                        <td><a href="#" id="list_a" onclick='my_detail("${name}")'>${name}</a></td>
                                     </tr>`
                         $('#table-contents').append(temp_html)
                     }
