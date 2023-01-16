@@ -70,6 +70,7 @@ def api_register():
 def api_login():
     id_receive = request.form['id_give']
     pw_receive = request.form['pw_give']
+    print(id_receive, pw_receive)
 
     # 회원가입 때와 같은 방법으로 pw를 암호화합니다.
     pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
@@ -87,7 +88,7 @@ def api_login():
             'id': id_receive,
             'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=5)
         }
-        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
+        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256').decode('utf-8')
 
         # token을 줍니다.
         return jsonify({'result': 'success', 'token': token})
@@ -183,5 +184,5 @@ def review_get():
 
 #여기까지 입니다
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5001, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
 
